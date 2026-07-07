@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Real Weather App</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- LEFT SECTION: CURRENT WEATHER -->
+
+    <div class="left">
+      <div class="search-box">
+        <input type="text" class="search" placeholder="Search city...">
+        <button onclick="getWeather()">Search</button>
+      </div>
+
+      <div class="weather-icon">
+        <img id="icon" src="https://openweathermap.org/img/wn/10d@2x.png">
+      </div>
+
+      <div class="temp" id="temp">30°C</div>
+
+      <div class="city-day">
+        <span id="city">Kuala Lumpur</span>
+        <span id="day">Monday</span>
+      </div>
+
+      <hr>
+
+      <div class="details" id="details">
+        <p>🌧 Light Rain</p>
+        <p>🌡 Min Temp - 28°C</p>
+        <p>🌡 Max Temp - 31°C</p>
+      </div>
+
+      <div class="bottom-cards">
+        <div class="mini-card">
+          <h2 id="humidity">83%</h2>
+          <p>Humidity</p>
+        </div>
+
+        <div class="mini-card">
+          <h2 id="wind">6 km/h</h2>
+          <p>Wind Speed</p>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- TOMORROW'S WEATHER -->
+      <div class="tomorrow-section">
+        <h3>Tomorrow</h3>
+        <div class="tomorrow-card">
+          <img id="tomorrowIcon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="Tomorrow weather">
+          <div>
+            <p><strong id="tomorrowTemp">32°C</strong></p>
+            <p id="tomorrowDesc">Light Rain</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SECTION: FORECAST & OVERVIEW -->
+    <div class="right">
+      <div class="title">
+        <h2>7 Day Forecast</h2>
+      </div>
+
+      <div class="forecast" id="forecast"></div>
+
+      <div class="overview">
+        <h2>Today's Overview</h2>
+
+        <div class="overview-grid">
+          <div class="overview-card">
+            <h4>Feels Like</h4>
+            <div class="big" id="feels">29°C</div>
+          </div>
+
+          <div class="overview-card">
+            <h4>Pressure</h4>
+            <div class="big" id="pressure">1006</div>
+          </div>
+
+          <div class="overview-card">
+            <h4>Visibility</h4>
+            <div class="big" id="visibility">10km</div>
+          </div>
+
+          <div class="overview-card chart">
+            <h4>Temperature Chart</h4>
+            <canvas id="chart"></canvas>
+          </div>
+
+          <div class="overview-card">
+            <h4>Sunrise</h4>
+            <div class="big" id="sunrise">6:10</div>
+            <br>
+            <h4>Sunset</h4>
+            <div class="big" id="sunset">7:05</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL FOR 7-DAY DETAILED VIEW -->
+  <div id="detailModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle">Day Details</h2>
+      <div id="modalBody" class="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
